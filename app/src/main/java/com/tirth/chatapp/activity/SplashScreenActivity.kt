@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.core.os.HandlerCompat.postDelayed
 import com.tirth.chatapp.R
 
@@ -12,6 +15,10 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         supportActionBar?.hide()
+
+        val appLogo: LinearLayout = findViewById(R.id.ll_App_Logo)
+        val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.slide)
+        appLogo.startAnimation(slideAnimation)
 
         Handler().postDelayed({
             val intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)

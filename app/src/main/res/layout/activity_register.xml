@@ -7,7 +7,7 @@
     android:background="#006D77"
     tools:context=".RegisterActivity">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="59dp"
         android:layout_height="59dp"
         android:src="@drawable/chat"

@@ -5,17 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.SplashScreenActivity"
-    android:background="@color/purple_200">
+    android:background="@color/BgBlue">
 
-    <ImageView
-        android:layout_width="118dp"
-        android:layout_height="118dp"
-        android:src="@drawable/chat"
+    <LinearLayout
+        android:id="@+id/ll_App_Logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.411" />
+        app:layout_constraintVertical_bias="0.434">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_App_Icon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/chat" />
+
+        <TextView
+            android:id="@+id/tv_App_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/amaranth_bold"
+            android:text="Chat Me Up"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
