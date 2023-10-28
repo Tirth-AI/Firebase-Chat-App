@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/my_gradient">
+    android:background="@color/lightBlue">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_Profile"
@@ -31,7 +31,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="10dp"
-                android:src="@color/black_olive"
+                android:src="@color/lightBlue"
                 app:civ_border_width="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

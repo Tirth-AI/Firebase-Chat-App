@@ -44,20 +44,30 @@ class ProfileActivity : AppCompatActivity(){
 
         currentUser = FirebaseAuth.getInstance().currentUser!!
         ref = FirebaseDatabase.getInstance().getReference("Users").child(currentUser.uid)
+        Log.d("ProfileActivity", "reference: $ref")
 
 
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
+
             override fun onDataChange(snapshot: DataSnapshot) {
+                Log.d("ProfileActivity", "Inside addListenerForSingleValueEvent")
                 if (snapshot.exists()) {
+                    Log.d("ProfileActivity", "Snapshot exists $snapshot")
+
                     val user = snapshot.getValue(User::class.java)
+                    Log.d("ProfileActivity", "User: $user")
                     userProfilename.text = user?.username
                     Glide.with(this@ProfileActivity).load(user?.profileImageURL)
                         .into(userProfilePic)
                     cancelCustomDialog()
                 }
+                else {
+                    Log.d("ProfileActivity", "Snapshot does not exist")
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
+                Log.d("ProfileActivity", "Some error: $error")
                 cancelCustomDialog()
                 Toast.makeText(this@ProfileActivity, error.message, Toast.LENGTH_SHORT).show()
             }

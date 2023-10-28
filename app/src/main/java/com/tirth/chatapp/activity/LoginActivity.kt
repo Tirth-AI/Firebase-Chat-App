@@ -68,6 +68,7 @@ class LoginActivity: AppCompatActivity() {
         super.onStart()
         val firebaseUser: FirebaseAuth = FirebaseAuth.getInstance()
         if(firebaseUser.currentUser != null){
+            Log.d("LoginActivity", "User logged in")
             val intent = Intent(this@LoginActivity, LatestMessageActivity::class.java)
             startActivity(intent)
             finish()

@@ -72,16 +72,18 @@ class LatestMessageActivity : AppCompatActivity() {
     }
 
     private fun fetchPersonalUserId(){
+        Log.d("LatestMessageActivity", "Entered fetchPersonalUserId()")
         showCustomDialog()
         val currentUser: FirebaseUser = FirebaseAuth.getInstance().currentUser!!
         val uid = currentUser.uid
         val ref = FirebaseDatabase.getInstance().getReference("Personal_Users/$uid")
         personalReceiverIdList.clear()
+        Log.d("LatestMessageActivity", "Reference: $ref")
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
                     snapshot.children.forEach {
-                        Log.d("LatestMessageActivity", it.toString())
+                        Log.d("LatestMessageActivity", "Snapshotss: $it")
                         val receiverId = it.value
                         personalReceiverIdList.add(receiverId.toString())
                     }
